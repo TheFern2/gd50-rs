@@ -2,5 +2,6 @@
 
 members = [
     "pong0",
-    "pong1"
+    "pong1",
+    "pong3"
 ]
