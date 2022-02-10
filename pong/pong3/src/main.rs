@@ -4,11 +4,11 @@ use sfml::graphics::{
     CircleShape, Color, Font, RectangleShape, RenderTarget, RenderWindow, Shape, Text,
     Transformable,
 };
-use sfml::system::{Clock, Vector2f};
+use sfml::system::{Clock, SfStrConv, Vector2f};
 use sfml::window::{Event, Key, Style};
 
 /*
-* Pong 3: The Paddle Update
+* Pong 3: The Paddle Update, paddle movement added, and scores.
 */
 fn main() {
     const WINDOW_WIDTH: u32 = 1280;
@@ -44,14 +44,14 @@ fn main() {
     player_1_score_text.set_font(&font);
     player_1_score_text.set_fill_color(Color::WHITE);
     player_1_score_text.set_character_size(80);
-    player_1_score_text.set_string("0");
+    player_1_score_text.set_string(&format!("{}", player_1_score));
     player_1_score_text.set_position((WINDOW_WIDTH as f32 / 2. - 120., 60.));
 
     let mut player_2_score_text = Text::default();
     player_2_score_text.set_font(&font);
     player_2_score_text.set_fill_color(Color::WHITE);
     player_2_score_text.set_character_size(80);
-    player_2_score_text.set_string("0");
+    player_2_score_text.set_string(&format!("{}", player_2_score));
     player_2_score_text.set_position((WINDOW_WIDTH as f32 / 2. + 60., 60.));
 
     let paddle_size = Vector2f::new(25., 100.);
